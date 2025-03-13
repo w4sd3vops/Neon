@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta tags para SEO -->
+    <meta name="description" content="Página Neon - Design moderno com serviços inovadores, portfólio e contato. Explore nossa história e missão!">
+    <meta name="keywords" content="neon, design, serviços, portfólio, contato, tecnologia, inovação">
+    <meta name="author" content="Neon Page">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph para redes sociais -->
+    <meta property="og:title" content="Página Neon - Design e Inovação">
+    <meta property="og:description" content="Explore a Página Neon com design moderno, serviços inovadores e portfólio criativo.">
+    <meta property="og:image" content="https://example.com/neon-image.jpg"> <!-- Substitua por uma URL de imagem real -->
+    <meta property="og:url" content="https://example.com"> <!-- Substitua pela URL real da página -->
+    <meta property="og:type" content="website">
+    <!-- Título otimizado -->
+    <title>Página Neon - Design Moderno e Inovação</title>
+    <style>
+        /* Reset básico para compatibilidade cross-browser */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box; /* Safari/Chrome */
+            -moz-box-sizing: border-box; /* Firefox */
+        }
+
+        body {
+            background: url('https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif') no-repeat center center fixed;
+            -webkit-background-size: cover; /* Safari/Chrome */
+            -moz-background-size: cover; /* Firefox */
+            background-size: cover;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif; /* Fallback para maior compatibilidade */
+            min-height: 100vh;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased; /* Melhora renderização em navegadores Webkit */
+            -moz-osx-font-smoothing: grayscale; /* Melhora renderização em Firefox no macOS */
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+
+        .top-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 10px 0;
+            z-index: 1001;
+            text-align: center;
+        }
+
+        .top-menu ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .top-menu ul li a {
+            color: #00ff00;
+            text-decoration: none;
+            font-size: 20px;
+            font-family: 'Righteous', cursive;
+            animation: glow 1.5s ease-in-out infinite alternate;
+            text-shadow:
+                0 0 5px #00ff00,
+                0 0 10px #00ff00,
+                0 0 20px #00ff00,
+                0 0 40px #00ff00,
+                0 0 80px #00ff00;
+        }
+
+        .menu-toggle {
+            font-size: 24px;
+            color: #00ff00;
+            cursor: pointer;
+            padding: 10px 20px;
+            position: fixed;
+            top: 60px;
+            left: 20px;
+            z-index: 1000;
+            animation: glow 1.5s ease-in-out infinite alternate;
+            text-shadow:
+                0 0 5px #00ff00,
+                0 0 10px #00ff00,
+                0 0 20px #00ff00,
+                0 0 40px #00ff00,
+                0 0 80px #00ff00;
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            padding-top: 100px;
+            transition: left 0.3s ease;
+            -webkit-transition: left 0.3s ease; /* Safari/Chrome */
+            -moz-transition: left 0.3s ease; /* Firefox */
+            z-index: 999;
+        }
+
+        .nav-menu.active {
+            left: 0;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-menu ul li {
+            padding: 15px 20px;
+        }
+
+        .nav-menu ul li a {
+            color: #00ff00;
+            text-decoration: none;
+            font-size: 20px;
+            font-family: 'Righteous', cursive;
+            animation: glow 1.5s ease-in-out infinite alternate;
+            text-shadow:
+                0 0 5px #00ff00,
+                0 0 10px #00ff00,
+                0 0 20px #00ff00,
+                0 0 40px #00ff00,
+                0 0 80px #00ff00;
+        }
+
+        .neon-text {
+            font-family: 'Monoton', cursive;
+            font-size: 72px;
+            color: #00ff00;
+            text-transform: uppercase;
+            animation: glow 1.5s ease-in-out infinite alternate;
+            text-shadow:
+                0 0 5px #00ff00,
+                0 0 10px #00ff00,
+                0 0 20px #00ff00,
+                0 0 40px #00ff00,
+                0 0 80px #00ff00;
+            text-align: center;
+            padding: 80px 0 50px;
+        }
+
+        .section-title {
+            font-family: 'Righteous', cursive;
+            font-size: 36px;
+            color: #00ff00;
+            text-align: center;
+            margin: 40px 0 20px;
+            animation: glow 1.5s ease-in-out infinite alternate;
+            text-shadow:
+                0 0 5px #00ff00,
+                0 0 10px #00ff00,
+                0 0 20px #00ff00,
+                0 0 40px #00ff00,
+                0 0 80px #00ff00;
+        }
+
+        .intro-text {
+            color: #ffffff;
+            font-size: 18px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.5;
+        }
+
+        .youtube-player {
+            display: block;
+            width: 90%;
+            max-width: 560px;
+            height: 0;
+            padding-bottom: 56.25%;
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+            margin: 40px auto;
+            position: relative;
+        }
+
+        .youtube-player iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .content {
+            padding: 20px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+            background: rgba(0, 0, 0, 0.8);
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-icons a {
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .social-icons i {
+            font-size: 30px;
+            color: #00ff00;
+            animation: glow 1.5s ease-in-out infinite alternate;
+            text-shadow:
+                0 0 5px #00ff00,
+                0 0 10px #00ff00,
+                0 0 20px #00ff00,
+                0 0 40px #00ff00,
+                0 0 80px #00ff00;
+        }
+
+        .copyright {
+            color: #ffffff;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow:
+                    0 0 5px #00ff00,
+                    0 0 10px #00ff00,
+                    0 0 20px #00ff00,
+                    0 0 40px #00ff00,
+                    0 0 80px #00ff00;
+            }
+            to {
+                text-shadow:
+                    0 0 10px #00ff00,
+                    0 0 20px #00ff00,
+                    0 0 30px #00ff00,
+                    0 0 50px #00ff00,
+                    0 0 100px #00ff00;
+            }
+        }
+
+        /* Media Queries para responsividade */
+        @media (max-width: 768px) {
+            .neon-text {
+                font-size: 48px;
+                padding: 60px 0 30px;
+            }
+
+            .section-title {
+                font-size: 28px;
+                margin: 30px 0 15px;
+            }
+
+            .intro-text {
+                font-size: 16px;
+                max-width: 90%;
+            }
+
+            .youtube-player {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .nav-menu {
+                width: 200px;
+            }
+
+            .nav-menu ul li a {
+                font-size: 18px;
+            }
+
+            .top-menu ul {
+                gap: 20px;
+            }
+
+            .top-menu ul li a {
+                font-size: 18px;
+            }
+
+            .menu-toggle {
+                top: 50px;
+                left: 15px;
+            }
+
+            .social-icons i {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .neon-text {
+                font-size: 36px;
+                padding: 50px 0 20px;
+            }
+
+            .section-title {
+                font-size: 24px;
+                margin: 25px 0 10px;
+            }
+
+            .intro-text {
+                font-size: 14px;
+                max-width: 95%;
+            }
+
+            .youtube-player {
+                width: 100%;
+                padding-bottom: 56.25%;
+            }
+
+            .nav-menu {
+                width: 180px;
+            }
+
+            .nav-menu ul li a {
+                font-size: 16px;
+            }
+
+            .top-menu ul {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .top-menu ul li a {
+                font-size: 16px;
+            }
+
+            .menu-toggle {
+                top: 40px;
+                left: 10px;
+            }
+
+            .social-icons i {
+                font-size: 20px;
+            }
+
+            .copyright {
+                font-size: 12px;
+            }
+        }
+    </style>
+    <!-- Fontes externas com pré-carregamento para desempenho -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <!-- Cabeçalho com navegação superior -->
+    <header>
+        <nav class="top-menu" aria-label="Navegação principal">
+            <ul>
+                <li><a href="https://www.google.com" target="_blank" rel="noopener noreferrer">Google</a></li>
+                <li><a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+                <li><a href="https://www.github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                <li><a href="https://www.wikipedia.org" target="_blank" rel="noopener noreferrer">Wikipédia</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Menu lateral -->
+    <div class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menu">☰</div>
+    <nav class="nav-menu" id="navMenu" aria-label="Navegação secundária">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#portfolio">Portfólio</a></li>
+            <li><a href="#contact">Contato</a></li>
+        </ul>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <section id="home" aria-labelledby="home-title">
+            <h1 class="neon-text" id="home-title">NEON</h1>
+            <div class="youtube-player">
+                <iframe src="https://www.youtube.com/embed/8VjcWoWvbMw" title="Vídeo introdutório da Página Neon" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </section>
+
+        <div class="content">
+            <section id="about" aria-labelledby="about-title">
+                <h2 class="section-title" id="about-title">Sobre</h2>
+                <p class="intro-text">Bem-vindo à nossa página neon! Aqui você encontrará informações sobre nossa história e missão.</p>
+            </section>
+
+            <section id="services" aria-labelledby="services-title">
+                <h2 class="section-title" id="services-title">Serviços</h2>
+                <p class="intro-text">Oferecemos serviços inovadores com design moderno e tecnologia de ponta.</p>
+            </section>
+
+            <section id="portfolio" aria-labelledby="portfolio-title">
+                <h2 class="section-title" id="portfolio-title">Portfólio</h2>
+                <p class="intro-text">Confira nossos projetos mais recentes e inspire-se com nosso trabalho.</p>
+            </section>
+
+            <section id="contact" aria-labelledby="contact-title">
+                <h2 class="section-title" id="contact-title">Contato</h2>
+                <p class="intro-text">Entre em contato conosco para mais informações ou parcerias.</p>
+            </section>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="social-icons" aria-label="Redes sociais">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div class="copyright">
+            © 2025 Neon Page. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById("navMenu");
+            navMenu.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
